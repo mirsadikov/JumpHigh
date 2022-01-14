@@ -7,23 +7,11 @@
   <title>Unity WebGL Player | JumpHigh</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
-  <style>
-    #note {
-      height: 100px;
-      text-align: center;
-      line-height:100px;
-      font-size: 50px;
-      font-weight: bold;
-      font-family: sans-serif;
-      z-index: 9999;
-    }
-  </style>
 </head>
 
 <body>
-  <div id="note">GAMEPLAY IS BETTER ON MOBILE APK</div>
   <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas" width=960 height=600></canvas>
+    <canvas id="unity-canvas" width=500></canvas>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty">
@@ -72,9 +60,9 @@
     var buildUrl = "Build";
     var loaderUrl = buildUrl + "/web.loader.js";
     var config = {
-      dataUrl: buildUrl + "/web.data.br",
-      frameworkUrl: buildUrl + "/web.framework.js.br",
-      codeUrl: buildUrl + "/web.wasm.br",
+      dataUrl: buildUrl + "/web.data",
+      frameworkUrl: buildUrl + "/web.framework.js",
+      codeUrl: buildUrl + "/web.wasm",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "WIUT",
       productName: "JumpHigh",
@@ -96,8 +84,9 @@
       config.devicePixelRatio = 1;
       unityShowBanner('WebGL builds are not supported on mobile devices.');
     } else {
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
+      const h = 0.8 * window.innerHeight;
+      canvas.style.width = h * 9 / 16 + 'px';
+      canvas.style.height = + h + "px";
     }
     loadingBar.style.display = "block";
 
